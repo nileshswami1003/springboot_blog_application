@@ -1,22 +1,90 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Create New Post</title>
+<meta charset="ISO-8859-1">
+<title>Blog Posts</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
 </head>
 <body>
 	
-	
-	<h2>Create New Post</h2>
-    <form th:action="@{/newpost}" th:object="${post}" method="post">
-        <label for="title">Title:</label>
-        <input type="text" id="title" th:field="*{title}" required>
-        <br>
-        <label for="content">Content:</label>
-        <textarea id="content" th:field="*{content}" required></textarea>
-        <br>
-        <button type="submit">Save</button>
-    </form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <a class="navbar-brand" href="#">Blog Application</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Projects</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Courses
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Career</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Registration</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Contact</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row mt-2">
+    <div class="offset-2 col-md-8">
+		<div class="card">
+			<div class="card-header">
+				<h2 class="text-success text-center">Create new blog</h2>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/newpost}" th:object="${post}" method="post">
+					<div class="form-group">
+						<label>Title</label>
+						<input type="text" id="title" class="form-control" th:field="*{title}" required>
+					</div>
+					<div class="form-group">
+						<label>Content</label>
+						<textarea type="text" id="content" class="form-control" th:field="*{content}" required></textarea>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success float-right">Save</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+  </div>
+</div>
+
+
+<script th:src="@{/js/jquery-3.5.1.slim.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
